@@ -18,7 +18,7 @@ spec:
   - name: v1
     schema:
       openAPIV3Schema:
-        description: Quota is the Schema for the quotas API
+        description: Quota is a specification for a Serverless Quotaresource
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -33,12 +33,13 @@ spec:
           metadata:
             type: object
           spec:
-            description: QuotaSpec defines the desired state of Quota
+            description: QuotaSpec is the spec for a Foo resource
             properties:
               childAlert:
                 additionalProperties:
                   type: boolean
                 type: object
+                x-kubernetes-map-type: atomic
               childName:
                 items:
                   type: string
@@ -51,26 +52,28 @@ spec:
                 additionalProperties:
                   type: string
                 type: object
+                x-kubernetes-map-type: atomic
               podQpsIncreaseOrDecrease:
                 additionalProperties:
                   type: integer
                 type: object
+                x-kubernetes-map-type: atomic
               podQpsQuota:
                 additionalProperties:
                   type: integer
                 type: object
+                x-kubernetes-map-type: atomic
               podQpsReal:
                 additionalProperties:
                   type: integer
                 type: object
+                x-kubernetes-map-type: atomic
               supervisorName:
                 type: string
             type: object
           status:
-            description: QuotaStatus defines the observed state of Quota
+            description: QuotaStatus defines the observed state of SubscriberRule
             type: object
         type: object
     served: true
     storage: true
-    subresources:
-      status: {}
